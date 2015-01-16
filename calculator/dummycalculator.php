@@ -1,55 +1,3 @@
-
-
-<?php
-session_start();
-
-$number1=$_POST['number1'];
-$number2=$_POST['number2'];
-$ck=$_POST['ck'];
-
-
-if ( $ck == "add" ) {
-    echo "$number1 + $number2 = ";
-    $result= $number1 + $number2;
-    print $number1 + $number2;
-    return( $result);
-
-};
-
-
-if ($ck == "sub" ) {
-    echo "$number1 - $number2 = ";
-    echo $number1 - $number2;
-
-}elseif ($number1 < $number2) {
-    echo "Number1 should be larger than Number2";
-
-
-};
-//return (null);
-
-if ( $ck == "mul" ) {
-    echo "$number1 * $number2 = ";
-    echo $number1 * $number2;
-};
-
-if ( $ck == "div" ) {
-    echo "$number1 / $number2 = ";
-    echo $number1 / $number2;
-}
-else {
-    if ($number2 == 0) {
-
-        echo "cant divid";
-
-
-    }
-};
-
-
-
-?>
-
 <!DOCTYPE html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -95,6 +43,50 @@ else {
 </body>
 </html>
 
+
+
+<?php
+session_start();
+
+$number1=$_POST['number1'];
+$number2=$_POST['number2'];
+$ck=$_POST['ck'];
+
+
+if ( $ck == "add" ) {
+    echo "$number1 + $number2 = ";
+    echo $number1 + $number2;
+}
+function substraction($number1,$number2,$ck)
+
+{
+    if ($ck == "sub" && $number1 > $number2) {
+        echo "$number1 - $number2 = ";
+        echo $number1 - $number2;
+
+    }
+    elseif ($number1 < $number2) {
+        echo "Number1 should be larger than Number2";
+    }
+}
+if ( $ck == "mul" ) {
+    echo "$number1 * $number2 = ";
+    echo $number1 * $number2;
+}
+if ( $ck == "div" ) {
+    echo "$number1 / $number2 = ";
+    echo $number1 / $number2;
+
+}  elseif ( $number2==0) {
+
+    echo "cant divid";
+
+}
+
+
+
+
+?>
 <?php
 session_unset();
 ?>
